@@ -17,8 +17,7 @@ const entryPoint = document.querySelector('.topics')
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
     .then((successResponse) => {
         console.log('Success!!', successResponse)
-        const topics = successResponse.data.topics
-        topics.forEach(element => {
+        successResponse.data.topics.forEach(element => {
             entryPoint.appendChild(createTab(element))
         });
     })
