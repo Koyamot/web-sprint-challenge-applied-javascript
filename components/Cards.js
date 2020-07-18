@@ -47,6 +47,7 @@ const createCard = (obj) => {
     const author = document.createElement('div');
     author.className = 'author'
     const imgCont = document.createElement('div');
+    imgCont.className = 'img-container'
     const img = document.createElement('img');
     img.src = obj.authorPhoto
     const span = document.createElement('span');
