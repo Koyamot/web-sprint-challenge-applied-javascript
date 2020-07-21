@@ -22,3 +22,85 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+const images = [
+  "./assets/carousel/mountains.jpeg", 
+  "./assets/carousel/computer.jpeg",
+  "./assets/carousel/trees.jpeg",
+  "./assets/carousel/turntable.jpeg"
+]
+
+const carouselMaker = () => {
+  const carousel = document.createElement('div')
+  const leftBtn = document.createElement('div')
+  const image = document.createElement('img')
+  const rightBtn = document.createElement('div')
+  
+  carousel.className = 'carousel'
+  leftBtn.className = 'left-button'
+  rightBtn.className = 'right-button'
+
+  leftBtn.textContent = "<";
+  rightBtn.textContent = ">";
+  
+
+  image.src = images[0];
+  const img1 = images[0];
+	const img2 = images[1];
+	const img3 = images[2];
+	const img4 = images[3];
+  const img = [
+  img1, img2, img3, img4
+  ]
+  
+  carousel.append(leftBtn, image, rightBtn)
+
+  // carousel.appendChild(leftBtn)
+  // carousel.appendChild(img1)
+  // carousel.appendChild(img2)
+  // carousel.appendChild(img3)
+  // carousel.appendChild(img4)
+  // carousel.appendChild(rightBtn)
+  
+  image.style.display = 'block'
+
+  let i = 0;
+  const counter = 1;
+  const size = images.clientwidth;
+
+  carouselContainer.style.transform = `translateX(${-size * counter}px)`;
+
+
+leftBtn.addEventListener('click', event => {
+	if(i > 0){
+    i -= 1;
+    image.src = img[i];
+		}
+	if(i === 0){
+		i = 3;
+		image.src = img[i];
+  }
+  carouselContainer.style.transition = 'transform 0.4s ease-in-out';
+  });
+  
+	rightBtn.addEventListener('click', event => {
+		if(i <= img.length){
+      i += 1;
+		image.src = img[i];
+		}
+		if(i == 4){
+			i = 0;
+			image.src = img[i];
+    }
+    carouselContainer.style.transition = 'transform 0.4s ease-in-out';
+	});
+  
+  
+  return carousel
+}
+
+
+
+// query/append carousel
+const carouselContainer = document.querySelector('.carousel-container')
+carouselContainer.appendChild(carouselMaker());

@@ -51,7 +51,7 @@ const createCard = (obj) => {
     const img = document.createElement('img');
     img.src = obj.authorPhoto
     const span = document.createElement('span');
-    span.textContent = 'By' + obj.authorName
+    span.textContent = 'By ' + obj.authorName
 
     //append
     card.append(headline, author)
