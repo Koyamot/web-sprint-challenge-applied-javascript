@@ -65,34 +65,28 @@ const carouselMaker = () => {
   image.style.display = 'block'
 
   let i = 0;
-  const counter = 1;
-  const size = images.clientwidth;
-
-  carouselContainer.style.transform = `translateX(${-size * counter}px)`;
-
 
 leftBtn.addEventListener('click', event => {
-	if(i > 0){
-    i -= 1;
+	if(i === 0){
+    i = (img.length - 1);
     image.src = img[i];
 		}
-	if(i === 0){
-		i = 3;
+	else {
+		i--;
 		image.src = img[i];
   }
-  carouselContainer.style.transition = 'transform 0.4s ease-in-out';
+ 
   });
-  
+
 	rightBtn.addEventListener('click', event => {
-		if(i <= img.length){
-      i += 1;
-		image.src = img[i];
-		}
-		if(i == 4){
+		if(i === img.length - 1){
 			i = 0;
 			image.src = img[i];
     }
-    carouselContainer.style.transition = 'transform 0.4s ease-in-out';
+    else{
+      i++;
+      image.src = img[i];
+    }
 	});
   
   
